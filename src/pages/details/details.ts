@@ -13,8 +13,10 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'details.html',
 })
 export class DetailsPage {
-
+  
+  result : Object;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.result = this.navParams.data;
   }
 
   ionViewDidLoad() {

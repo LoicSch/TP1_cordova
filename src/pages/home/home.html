@@ -25,7 +25,7 @@
           <h2>{{result.title}}</h2>
           <p>{{result.author}}</p>
           <p>{{result.date}}</p>
-          <button ion-button clear item-end>></button>
+          <button ion-button clear item-end [navPush]="pushPage" [navParams]="result">></button>
         </ion-item>
       </ion-list>
 </ion-content>
