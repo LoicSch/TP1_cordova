@@ -14,8 +14,12 @@
 
 
 <ion-content padding>
-<h3>Title : {{result.title}}</h3>
-<h3>Author : {{result.author}}</h3>
-<h3>Date : {{result.date}}</h3>
-<img src={{result.image}}>
+<img [src]= " 'https://image.tmdb.org/t/p/w90' + result.poster_path ">  
+<p>Title : {{result.title}}</p>
+<p>Id : {{result.id}}</p>
+<p>Date : {{result.release_date}}</p>
+<h3>Overview : {{result.overview}}</h3>
+<h3>Popularity : {{result.popularity}}</h3>
+<h3>Vote count : {{result.vote_count}}</h3>
+<h3>Vote average : {{result.vote_average}}</h3>
 </ion-content>

@@ -5,4 +5,6 @@ import { AppModule } from './app.module';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/pluck';
 
+import { HttpClientModule } from '@angular/common/http';
+
 platformBrowserDynamic().bootstrapModule(AppModule);

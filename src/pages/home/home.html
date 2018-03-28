@@ -16,15 +16,14 @@
 
 <ion-content padding>
   <h2>Results</h2>
-  <h2 id="noresults">No Results</h2>
+  <h2 *ngIf = "(results | async)?.length == 0">No Results</h2>
     <ion-list>
-        <ion-item *ngFor="let result of results">
+        <ion-item *ngFor="let result of results | async">
           <ion-thumbnail item-start>
-            <img src={{result.image}}>
+            <img [src]= " 'https://image.tmdb.org/t/p/w90' + result.poster_path ">
           </ion-thumbnail>
           <h2>{{result.title}}</h2>
-          <p>{{result.author}}</p>
-          <p>{{result.date}}</p>
+          <p>{{result.release_date}}</p>
           <button ion-button clear item-end [navPush]="pushPage" [navParams]="result">></button>
         </ion-item>
       </ion-list>
