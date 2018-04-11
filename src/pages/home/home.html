@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Movie Finder
     </ion-title>
   </ion-navbar>
 
@@ -23,8 +23,8 @@
             <img [src]= " 'https://image.tmdb.org/t/p/w154' + result.poster_path ">
           </ion-thumbnail>
           <h2>{{result.title}}</h2>
-          <p>{{result.release_date}}</p>
-          <button ion-button clear item-end [navPush]="pushPage" [navParams]="result">></button>
+          <p>{{result.release_date|date:'dd/MM/yyyy'}}</p>
+          <button ion-button clear item-end [navPush]="pushPage" [navParams]="result"><p style = "font-size: 30px;">></p></button>
         </ion-item>
       </ion-list>
 </ion-content>

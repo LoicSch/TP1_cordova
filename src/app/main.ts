@@ -7,4 +7,7 @@ import 'rxjs/add/operator/pluck';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import 'rxjs/add/observable/fromPromise';
+import 'rxjs/add/operator/switchMap';
+
 platformBrowserDynamic().bootstrapModule(AppModule);
