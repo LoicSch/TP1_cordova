@@ -14,12 +14,9 @@
 
 
 <ion-content padding>
-<img [src]= " 'https://image.tmdb.org/t/p/w90' + result.poster_path ">  
-<p>Title : {{result.title}}</p>
-<p>Id : {{result.id}}</p>
-<p>Date : {{result.release_date}}</p>
-<h3>Overview : {{result.overview}}</h3>
-<h3>Popularity : {{result.popularity}}</h3>
-<h3>Vote count : {{result.vote_count}}</h3>
+<img [src]= " 'https://image.tmdb.org/t/p/w154' + result.poster_path ">
+<h1>{{result.title}}</h1>
 <h3>Vote average : {{result.vote_average}}</h3>
+<p>Date : {{result.release_date|date:'longDate'}}</p>
+<p>Overview : {{result.overview}}</p>
 </ion-content>
