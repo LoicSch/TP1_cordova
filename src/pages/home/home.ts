@@ -28,26 +28,28 @@ export class HomePage {
     this.pushPage = DetailsPage;
   }
 
-  fetchResults(query : string) : Observable<Result[]> {
-    let url : string = 'https://api.themoviedb.org/3/search/movie'
+  fetchResults(name : string) : Observable<Result[]> {
+    const url: string = 'https://api.themoviedb.org/3/search/movie'
     return this.http.get(url,
       {
       params:
       {
         api_key : APIkey,
-        query : query
+        query : name,
+        language: 'fr'
       }
 
     }).pluck('results');
   }
 
   private discoverMovies(): Observable<Result[]> {
-    let url : string = 'https://api.themoviedb.org/3/discover/movie'
+    const url: string = 'https://api.themoviedb.org/3/discover/movie'
     return this.http.get(url,
       {
       params:
       {
         api_key : APIkey,
+        language: 'fr',
         primary_release_year : '2018'
       }
     }).pluck('results');
@@ -85,6 +87,10 @@ export class HomePage {
     }
   }
 
+  get2018items() {
+    this.results = this.discoverMovies();
+  }
+
   ionViewDidEnter() {
     this.shakeSubscription = Observable.fromPromise(this.platform.ready())
       .switchMap(() => this.shake.startWatch())
@@ -98,9 +104,9 @@ export class HomePage {
 }
 
   export interface Result {
+    id: string;
     title: string;
     release_date: string;
-    id: number;
     overview: string;
     poster_path: string;
     popularity: number;

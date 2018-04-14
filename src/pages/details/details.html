@@ -14,9 +14,17 @@
 
 
 <ion-content padding>
-<img [src]= " 'https://image.tmdb.org/t/p/w154' + result.poster_path ">
-<h1>{{result.title}}</h1>
-<h3>Vote average : {{result.vote_average}}</h3>
-<p>Date : {{result.release_date|date:'longDate'}}</p>
-<p>Overview : {{result.overview}}</p>
+  <img [src]= " 'https://image.tmdb.org/t/p/w154' + res.poster_path ">
+  <h1>{{res.title}}</h1>
+  <h3>Note moyenne : {{res.vote_average}}</h3>
+  <p>Date de sortie : {{res.release_date|date:'dd/MM/yyyy'}}</p>
+  <h4>Synopsis :</h4>
+  <p>{{res.overview}}</p>
+
+<ion-grid width='95%'>
+  <ion-row justify-content-center align-items-center style="height: 100%">
+    <iframe id="trailer" *ngIf="videourl | async as url" [src]="url" frameborder="1" allowfullscreen></iframe>
+  </ion-row>
+</ion-grid>
+
 </ion-content>
